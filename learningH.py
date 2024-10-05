@@ -1,7 +1,5 @@
-name = "bobogilr"
-food = "lop"
-print(f"delam {food} mikhad")
-print(f"i lob {name}")
-age = 19
-print(f"you are {age} years old")
-print('qahram')
+mess = int(input('enter your age: '))
+if mess % 2 == 0:
+    print('your age is even')
+else:
+    print('print your is is not even')
