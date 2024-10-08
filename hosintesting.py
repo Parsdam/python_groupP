@@ -42,15 +42,23 @@ def main():
         case (1):
             print("Easy mode selected")
             playgame(1,10,2)
+            pass
         case (2):
             print("Medium mode selected")
             playgame(1,100,5)
+            pass
         case (3):
             print("Hard mode selected")
             playgame(1,1000,10)
+            pass
         case (4):
             print("custom mod selected")
-            playgame(int(input("\nenter minimum number: ")),int(input("\nenter maximum number: ")),int(input("\nenter tries number: ")))
+            try:
+                a=int(input("\nenter minimum number: ")),b=int(input("\nenter maximum number: ")),c=int(input("\nenter tries number: "))
+            except ValueError:
+                print("Invalid difficulty level selected. Please enter a number")
+            playgame(a,b,c)
+            pass
         case _:
             print("Invalid difficulty level selected")
 if __name__ == "__main__":
