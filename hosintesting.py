@@ -30,16 +30,28 @@ def playgame(min_number, max_number, max_tries):
 def main():
 
     print("welcome to my gussing game! \n ------------------------------------------------------------")
+    while True:
+        try:
+            difficulty_lvl = int(input("Choose your difficulty level (you will have 4 chancess to guess correctly): \n1. Easy (1-10) \n2. Medium (1-100) \n3. Hard (1-1000) \n ??? "))
+            break
+        except ValueError:
+            print("Invalid difficulty level selected. Please enter a number.")
+            continue
 
-    difficulty_lvl = int(input("Choose your difficulty level (you will have 4 chancess to guess correctly): \n1. Easy (1-10) \n2. Medium (1-100) \n3. Hard (1-1000) \n ??? "))
-    
     match (difficulty_lvl):
         case (1):
-            playgame(1,100,4)
+            print("Easy mode selected")
+            playgame(1,10,2)
         case (2):
-            playgame(1,100,4)
+            print("Medium mode selected")
+            playgame(1,100,5)
         case (3):
-            playgame(1,100,4)
-
+            print("Hard mode selected")
+            playgame(1,1000,10)
+        case (4):
+            print("custom mod selected")
+            playgame(int(input("\nenter minimum number: ")),int(input("\nenter maximum number: ")),int(input("\nenter tries number: ")))
+        case _:
+            print("Invalid difficulty level selected")
 if __name__ == "__main__":
     main()
