@@ -1,39 +1,37 @@
 import random
+score = 0
+def playgame(min_number, max_number, max_tries):
+    number_to_guess = random.randint(min_number, max_number)
+    print(f"I'm thinking of a number between {min_number} and {max_number}. You have {max_tries} tries.")
+    attempt = 0
+    for attempt in range(max_tries - 1):
+        guess = int(input("whats youre guess ? "))
+        if guess == number_to_guess:
+            print(f"Congratulations! You guessed the number {number_to_guess} in {attempt+1} attempts.")
+            score += 1
+            break
+        elif guess < number_to_guess:
+            print("Too low!")
 
-print("hello and welcome to my gussing game!")
-
-deficalty = int(input("how hard do you want it to bew: "))
-number_to_guess = random.randrange(1, deficalty)
-win = False
-
-guss_counter = 0
-chance = 4
-point = 0
-
-print("------------------------------------------------------")
-
-while guss_counter <= chance:
-    guss_counter += 1
-    guess = int(input("pls inter ur guess : "))
-
-    if guess == number_to_guess:
-
-        print(f"the number {guess} is corecct congrats \n it took you {guss_counter} attempts")
-        win = True
-        break
+        elif guess > number_to_guess:
+            print("Too high!")
+        elif guess > max_number or guess < min_number :
+            print("Invalid input. Please enter a number.") 
+            attempt -= 1
         
+def main():
 
-    elif guess > number_to_guess:
-        print(f"the number {guess} in too big try smaller numbers")
+    print("welcome to my gussing game! \n ------------------------------------------------------------")
 
-    elif guess < number_to_guess:
-        print(f"the number {guess} is too small try a bigger number")
+    difficulty_lvl = int(input("Choose your difficulty level (you will have 4 chancess to guess correctly): \n1. Easy (1-10) \n2. Medium (1-100) \n3. Hard (1-1000)"))
+    
+    match (difficulty_lvl):
+        case (1):
+            playgame(1,100,4)
+        case (2):
+            playgame(1,100,4)
+        case (3):
+            playgame(1,100,4)
 
-
-if win:
-    point += 1
-    print(f"__________________________________________________ \ncongrats ur point is {point}")
-    print("do u wanna start agian")
-    win = False
-else:
-    print("ur out of trys do u wanna start again")
+if __name__ == "__main__":
+    main()
