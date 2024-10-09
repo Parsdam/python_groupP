@@ -6,19 +6,20 @@ def gusscharecter(lenght,word):
     found_charecterlist = []
     while attempts > 0:
         try:
-            guess = chr(input("guess a charecter: ").lower())
+            guess = input("guess a charecter: ").lower()
             if guess in word and not(guess in found_charecterlist):
                 print(f"yes the word has the charecter {guess}")
-                found_charecterlist = found_charecterlist.append(guess)
+                found_charecterlist.append(guess)
                 print(f"u have found so far is :{found_charecterlist}")
+                attempts -= 1
             else:
                 print(f"no the word does not have the charecter {guess} or u have found this one before")
                 print(f"u have found so far is :{found_charecterlist}")
                 print(f"you have {attempts - 1}  attemts remaining")
-                
+                attempts -= 1
+
         except ValueError:
             print("Invalid input. Please enter a charecter.")
-            attempts -= 1
 
 def guess_length(length):
     attempts = 4
