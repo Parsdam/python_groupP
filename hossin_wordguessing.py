@@ -1,4 +1,13 @@
 import random
+def guesstheword(word):
+    attempts = 3
+    print("ok now try to guess the word")
+    for i in range(attempts):
+        if word == input("what do u think the word is : "):
+            print("congrats ")
+    
+
+
 def gusscharecter(lenght,word):
     attempts = 10
     print("ok now you should guess a charecters in the word and im ganna tell you if the word has it or not\nthere are :")
@@ -48,6 +57,10 @@ def randomword():
     words = ["rainbow", "apple", "orange", "administ",'rainbow',
             'computer', 'science', 'programming',
             'python', 'mathematics', 'player', 'condition',
+            'apple', 'banana', 'cherry', 'date', 'elderberry',
+            'fig', 'grape', 'honeydew', 'kiwi', 'lemon', 'mango',
+            'nectarine', 'orange', 'pear', 'plum', 'quince', 'raspberry',
+            'strawberry', 'tangerine', 'watermelon'
             'reverse', 'water', 'board', 'geeks']
     return random.choice(words)
 
@@ -59,6 +72,7 @@ def main():
         word = randomword()
         if guess_length(len(word)):
             gusscharecter(len(word),word)
+            guesstheword(word)
         want2paly = input("do you want to play again : Y/N ")
     #say it was fun palying with you if thay dont want to play anymore
 if __name__ == "__main__":
