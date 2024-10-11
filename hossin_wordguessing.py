@@ -5,6 +5,8 @@ def guesstheword(word):
     for i in range(attempts):
         if word == input("what do u think the word is : "):
             print("congrats ")
+            return 1
+    return 0
     
 
 
