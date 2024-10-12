@@ -1,11 +1,14 @@
 import random
+score = 0
+
 def guesstheword(word):
     attempts = 3
-    print("ok now try to guess the word")
+    print("now try to guess the word")
     for i in range(attempts):
         if word == input("what do u think the word is : "):
             print("congrats ")
             return 1
+    print("nah man gg hopefully next time")
     return 0
     
 
@@ -32,7 +35,7 @@ def gusscharecter(lenght,word):
 
         except ValueError:
             print("Invalid input. Please enter a charecter.")
-
+    return found_charecterlist
 def guess_length(length):
     attempts = 4
     print(f"ok first you need to guess the length of the word.\nyou have {attempts} attempts to guess")
@@ -73,8 +76,11 @@ def main():
         print("im thinking of a word ....")
         word = randomword()
         if guess_length(len(word)):
-            gusscharecter(len(word),word)
-            guesstheword(word)
+            found_charecterlist = gusscharecter(len(word),word)
+            print(f"ok this is what you have :\n{found_charecterlist}")
+            if guesstheword(word):
+                score += 1
+            print(f"ur score is: {score}")
         want2paly = input("do you want to play again : Y/N ")
     #say it was fun palying with you if thay dont want to play anymore
 if __name__ == "__main__":
