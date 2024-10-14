@@ -1,14 +1,14 @@
 import random
 game_grid = [
+    [2, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [2, 0, 0, 0]
+    [0, 0, 0, 0]
 ]
 #game_grid = [[0 for _ in range(4)] for _ in range(4)]             
 def get_userinput():
     try:
-        inpuT = input("Please use w,a,s,d to play the game")
+        inpuT = input("Please use w,a,s,d to play the game : ")
         if inpuT == "w" or inpuT == "a" or inpuT == "s" or inpuT == "d":
             return inpuT
         else:
@@ -57,6 +57,20 @@ def move_up():
                         game_grid[brow][col] = 0
                     brow += 1
 
+def move_down():
+    for row in range(len(game_grid)-1):
+        for col in range(len(game_grid[0])):
+            if game_grid[row+1][col] == 0:
+                   for brow in range(row,-1,-1):
+                        if game_grid[brow][col] != 0:
+                            game_grid[brow+1][col] = game_grid[brow][col]
+                            game_grid[brow][col] = 0
+            elif game_grid[row][col] == game_grid[(row)+1][col]:
+                game_grid[(row)+1][col] *= 2
+                for brow in range(row-1,-1,-1):
+                    game_grid[brow+1][col] = game_grid[brow][col]
+                    game_grid[brow][col] = 0
+            
 
 """
                 for brow in range(row,len(game_grid)-1):
@@ -72,8 +86,8 @@ def main():
         match (get_userinput()):
             case ("w"):
                 move_up()
-            #case (_):
-                # comment:       
+            case (s):
+                move_down()      
 
 
 if __name__ == "__main__":
